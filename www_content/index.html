@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+
+  <script src="/www_content/jqueryscripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    var vcontent_global_update_in = false;
+    var vcontent_global_update_count = 0;
+    var vcontent_global_update_busy_count = 0;
+
+    function vcontent_global_update_func( event ) {
+        if ( !vcontent_global_update_in ) {
+            vcontent_global_update_in = true;
+
+            var evt_str = "";
+            if (event instanceof Object && event.type == "click") {
+                if (event.target instanceof Object) {
+                    evt_id = event.target.id;
+                    if (evt_id.startsWith("button_div")) {
+                        req_str = evt_id.substring(7);
+                        jqry_id = "#" + req_str;
+                        $(jqry_id).load("/api/v001?check/" + req_str + "_content");
+                        evt_str = req_str;
+                        vcontent_global_update_count ++;
+                    }
+                }
+            } else if (event != null) {
+                evt_str = "error";
+            } else {
+                evt_str = "null"
+            }
+            $("#div0").html("<p> javascript update count " +
+                   vcontent_global_update_count.toString() +
+                   " &nbsp; &nbsp; busy " +
+                   vcontent_global_update_busy_count.toString() +
+                   " event " + evt_str +
+                   "</p>");
+            vcontent_global_update_in = false;
+        } else {
+            vcontent_global_update_busy_count ++;
+        }
+    };
+
+    $(document).ready(function(){
+        vcontent_global_update_func(null);
+        $("#button_div1").click( function(event){vcontent_global_update_func(event);} );
+        $("#button_div2").click( function(event){vcontent_global_update_func(event);} );
+        $("#button_div3").click( function(event){vcontent_global_update_func(event);} );
+        setInterval( function(event){vcontent_global_update_func(event);} , 10000);
+    });
+
+  </script>
+</head>
+<body>
+
+  <p>
+       <button id="button_div1">Get External Content for div1</button>
+       <button id="button_div2">Get External Content for div2</button>
+       <button id="button_div3">Get External Content for div3</button>
+  </p>
+
+  <div>
+       <h3>Content for div0</h3>
+       <div id="div0"> &nbsp; <b>Let jQuery Script Change This Text</b></div>
+  </div>
+  <div>
+       <h3>Content for div1</h3>
+       <div id="div1"> &nbsp; <b>Let jQuery AJAX Change This Text</b></div>
+  </div>
+  <div>
+       <h3>Content for div2</h3>
+       <div id="div2"> &nbsp; <b>Let jQuery AJAX Change This Text</b></div>
+  </div>
+  <div>
+       <h3>Content for div3</h3>
+       <div id="div3"> &nbsp; <b>Let jQuery AJAX Change This Text</b></div>
+  </div>
+
+</body>
+</html>
+
