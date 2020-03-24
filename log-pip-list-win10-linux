@@ -1,0 +1,82 @@
+
+log-pip-list-win10-linux
+
+
+win10
+python-2.7.14 virtualenv-15.1.0
+
+pip list
+boto3            1.10.28
+botocore         1.13.28
+certifi          2019.11.28
+chardet          3.0.4
+docutils         0.15.2
+futures          3.3.0
+idna             2.8
+jmespath         0.9.4
+pip              19.3.1
+python-dateutil  2.8.0
+requests         2.22.0
+s3transfer       0.2.1
+setuptools       42.0.1
+six              1.13.0
+urllib3          1.25.7
+websocket-client 0.57.0
+wheel            0.33.6
+
+install for flask
+Jinja2-2.11.1 MarkupSafe-1.1.1 Werkzeug-1.0.0 click-7.1.1 flask-1.1.1 itsdangerous-1.1.0
+
+
+bionic
+python 3.7.5 by installing python3.7 python3.7-venv python3-venv
+
+pip list
+boto3 (1.12.27)
+botocore (1.15.27)
+docutils (0.15.2)
+jmespath (0.9.5)
+pip (9.0.1)
+pkg-resources (0.0.0)
+python-dateutil (2.8.1)
+s3transfer (0.3.3)
+setuptools (39.0.1)
+six (1.14.0)
+urllib3 (1.25.8)
+
+installed for flask
+Jinja2-2.11.1 MarkupSafe-1.1.1 Werkzeug-1.0.0 click-7.1.1 flask-1.1.1 itsdangerous-1.1.0
+
+
+buster aarch64
+
+apt-get install python3.7 python3-venv python3.7-venv
+apt-get install libnl-3-200 libnl-genl-3-200
+
+pip list initial
+pip           18.1                                                                           
+pkg-resources 0.0.0                                                                          
+setuptools    40.8.0                                                                         
+
+pip install boto3
+
+pip list
+boto3           1.12.27                                                                      
+botocore        1.15.27                                                                      
+docutils        0.15.2                                                                       
+jmespath        0.9.5                                                                        
+pip             18.1                                                                         
+pkg-resources   0.0.0                                                                        
+python-dateutil 2.8.1                                                                        
+s3transfer      0.3.3                                                                        
+setuptools      40.8.0                                                                       
+six             1.14.0                                                                       
+urllib3         1.25.8                                                                       
+
+pip install wheel
+installed wheel-0.34.2
+
+pip install flask
+installed Jinja2-2.11.1 MarkupSafe-1.1.1 Werkzeug-1.0.0 click-7.1.1 flask-1.1.1 
+
+
